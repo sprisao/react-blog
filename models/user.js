@@ -9,11 +9,11 @@ const userSchema = mongoose.Schema({
     email: {
         type:String,
         trim:true,
-        unique: 1
+        unique: 1 
     },
     password: {
         type: String,
-        minlength: 5
+        minglength: 5
     },
     lastname: {
         type:String,
@@ -21,12 +21,12 @@ const userSchema = mongoose.Schema({
     },
     role : {
         type:Number,
-        default: 0
+        default: 0 
     },
     token : {
         type: String,
     },
-    tokenExp : {
+    tokenExp :{
         type: Number
     }
 })
