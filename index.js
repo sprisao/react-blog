@@ -4,9 +4,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
+const config = require('./config/key')
+
 const { User } = require('./models/user');
 
-mongoose.connect('mongodb+srv://BruceChoe:Brucechoe123!@cluster0.waqcs.mongodb.net/<Cluster0>?retr' + 'yWrites=true&w=majority',
+mongoose.connect(config.mongoURI,
     {useNewUrlParser: true }).then(() =>console.log('DB connected'))
                             .catch(err => console.error(err));
 
@@ -14,6 +16,9 @@ mongoose.connect('mongodb+srv://BruceChoe:Brucechoe123!@cluster0.waqcs.mongodb.n
 app.use(bodyParser.urlencoded( { extended : true}));
 app.use(bodyParser.json());
 
+app.get('/',(req,res)=>{
+    res.json({"hello ": "Hi dfdfdfdf~ "})
+})
 
 app.post('/api/users/register', (req, res) => {
     const user = new User(req.body);
